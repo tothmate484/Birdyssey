@@ -1,0 +1,1 @@
+g++ src/main.cpp -lraylib -Wall -Werror -lGL -lm -lpthread -ldl -lrt -lX11 -I include/ -L lib/ -o bin/flappybird && ./bin/flappybird && clear
