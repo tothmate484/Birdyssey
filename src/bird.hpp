@@ -48,24 +48,29 @@ public:
 
     bool detect_collision(const Pillarpair& pillarpair){
         
+        bool c1 = true;
+        bool c2 = true;
+        bool c3 = true;
+        bool c4 = true;
+
         if ((pos.x() + width) < pillarpair.upper.get_pos().x() || (pillarpair.upper.get_pos().x() + pillarpair.upper.width) < pos.x()) {
-        return false;
+        c1 = false;
         }
 
         if ((pos.y() + height) < pillarpair.upper.get_pos().y() || (pillarpair.upper.get_pos().y() + pillarpair.upper.height) < pos.y()) {
-        return false;
+        c2 = false;
         }
 
         //lower***********************************************//
         if ((pos.x() + width) < pillarpair.lower.get_pos().x() || (pillarpair.lower.get_pos().x() + pillarpair.lower.width) < pos.x()) {
-        return false;
+        c3 = false;
         }
 
         if ((pos.y() + height) < pillarpair.lower.get_pos().y() || (pillarpair.lower.get_pos().y() + pillarpair.lower.height) < pos.y()) {
-        return false;
+        c4 = false;
         }
-
-        return true;
+        
+        return (c1 && c2) || (c3 && c4);
 
     }
 
